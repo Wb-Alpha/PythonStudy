@@ -100,4 +100,43 @@ else:
     print("该目录已经存在")
 
 #删除目录
-path = "..\"
+path = "..\createDir\\new"
+if os.path.exists(path):
+    os.rmdir(path)
+    print("目录删除成功")
+else:
+    print("目录不存在")
+
+#遍历目录(此函数仅在windows和UNIX中有效
+tuple = os.walk("E:\\PythonCode")
+for tuple1 in tuple:
+    print(tuple1, "\n")
+
+#删除文件
+with open("test.txt", 'w') as file5:
+    pass
+path = "test.txt"
+if os.path.exists(path):
+    os.remove(path)
+    print("文件已经删除完毕")
+else:
+    print("文件不存在")
+
+#重命名文件和目录
+import os
+src = "..\\createDir"
+dst = "..\\CREATEDIR"
+if os.path.exists(src):
+    os.rename(src, dst)
+    print("文件重命名完毕！")
+else:
+    print("文件不存在！")
+
+
+#获取文件基本信息
+if os.path.exists("message.txt"):
+    fileinfo = os.stat("message.txt")
+    print("文件完整路径：", os.path.abspath("message.txt"))
+    print("文件大小", fileinfo.st_size, "字节")
+    print("最后一次修改时间", fileinfo.st_mtime)
+
