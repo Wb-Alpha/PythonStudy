@@ -208,7 +208,6 @@ def write_task(q):
             q.put(message)
             print("写入:%s" % message)
 
-
 # 从队列中读取数据
 def read_task(q):
     time.sleep(1)
@@ -227,3 +226,21 @@ if __name__ == '__main__':
     pr.join()
     print("父进程结束")
 
+
+
+#使用threading模块创建线程
+import threading,time
+
+def process():
+    for i in range(3):
+        time.sleep(1)
+        print("thread name is %s" % threading.current_thread().name)
+
+if __name__ == '__main__':
+    print("--------主线程开始----------")
+    threads = [threading.Thread(target=process) for i in range(4)]  #创建四个线程存入列表
+    for t in threads:
+        t.start()
+    for t in threads:
+        t.join()
+    print("----主线程结束-----")
