@@ -9,3 +9,6 @@ for x in range(start, age + 2, 2):
 
     print(x)
 '''
+def func(**p):return sum(p.values())
+
+print(func(x=1, y=2, z=3) )

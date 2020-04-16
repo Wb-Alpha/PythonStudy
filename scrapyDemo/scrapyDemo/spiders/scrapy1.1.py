@@ -1,7 +1,7 @@
 import scrapy
 
 class QuotesSpider(scrapy.Spider):
-    name = "quotes" #定义爬虫名称
+    name = 'quotes' #定义爬虫名称
 
     def start_requests(self):
         #设置爬取目标的地址

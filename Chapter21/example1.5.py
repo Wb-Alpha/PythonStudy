@@ -1,7 +1,10 @@
 from bs4 import BeautifulSoup   #导入库
 import lxml
 
+
 #创建模拟HTML代码的字符串
+from scrapy.utils import response
+
 html_doc="""
 <html><head><title>The Dormouse's story</title></head>
 <body>
@@ -20,3 +23,4 @@ and they lived at the bottom of a well</p>
 #创建一个BueautifulSoup对象，获取页面正文
 soup = BeautifulSoup(html_doc, features="lxml")
 print(soup)
+response.css('title').extract()
